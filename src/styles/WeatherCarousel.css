@@ -1,0 +1,117 @@
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-container {
+  height: 80vh;
+  min-height: 500px;
+  padding-left: 150px;
+  padding-right: 0;
+  margin: 40px auto;
+  max-width: 650px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+.weather-card-inner {
+  position: relative;
+  height: 30vw;
+  width: 40vw;
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  /* CRITICAL: overflow must be visible so the giant temperature can break outside the box */
+  overflow: visible;
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.card-header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.card-weather {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #000;
+}
+
+.card-header-right h3 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+/* Positioning the giant overlapping temperature */
+.card-content {
+  position: absolute;
+  top: 70%;
+  left: -50px;
+  transform: translateY(-20%);
+}
+
+@media (min-width: 1024px) {
+  .card-content {
+    left: -100px;
+    top: 50%;
+  }
+}
+
+.card-content h1 {
+  margin: 0;
+  font-size: clamp(5rem, 12vw, 9rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -5px;
+  color: #000; /* Match this to the primary color of your card/theme */
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  transform: sclae(0.5) translateX(60px);
+
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.swiper-slide-active .card-content h1 {
+  opacity: 1;
+  transform: scale(1) translateX(0);
+}
+
+.swiper-slide-next .card-content h1,
+.swiper-slide-prev .card-content h1 {
+  opacity: 0.3;
+  transform: scale(0.7) translateX(30px);
+}
+
+.card-icon img {
+  mix-blend-mode: multiply;
+}

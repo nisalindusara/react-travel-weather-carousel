@@ -1,0 +1,114 @@
+/* Container for the whole header */
+.search-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* -------------------------------------
+   STATE 1: The Initial Search Pill
+-------------------------------------- */
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 50px; /* Gives it a modern pill shape */
+  width: 100%;
+  max-width: 150px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.search-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.search-text {
+  font-family: sans-serif;
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.search-svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+/* -------------------------------------
+   STATE 2: The Open Form
+-------------------------------------- */
+.search-form {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: slideDown 1s ease-out forwards;
+}
+
+.city-select {
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: #333;
+  background-color: #f3f4f6;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.city-select:focus {
+  border-color: #3b82f6; /* Blue highlight when active */
+  background-color: #ffffff;
+}
+
+/* The Tactile Submit Button */
+.submit-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Fast transition for a snappy feel */
+}
+
+.submit-btn:hover {
+  background-color: #2563eb;
+}
+
+/* The "Click" Effect */
+.submit-btn:active {
+  transform: translateY(4px); /* Pushes the button down */
+  box-shadow: 0 0px 0 #1d4ed8; /* Removes the bottom edge to simulate compression */
+}
+
+/* Smooth entry animation for the form */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

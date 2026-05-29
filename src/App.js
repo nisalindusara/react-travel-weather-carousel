@@ -3,7 +3,6 @@ import "./styles/App.css";
 
 import SearchCity from "./components/SearchCity";
 import WeatherCarousel from "./components/WeatherCarousel";
-import Footer from "./components/Footer";
 
 function App() {
   const [weather, setWeather] = useState([]);
@@ -41,7 +40,6 @@ function App() {
           <div>
             <SearchCity displayData={displayData} />
           </div>
-          <Footer />
         </div>
       ) : (
         <div className="main-content screen">
